@@ -4,4 +4,4 @@ Docker image definition for alpine-based postgres/postgis containers with extens
 running [Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim).
 
 Intended to be used in tandem with the `nominatim` image defined in
-its [own directory](https://github.com/scottcame/docker/new/master/nominatim).
+its [own directory](https://github.com/scottcame/docker/master/nominatim).
