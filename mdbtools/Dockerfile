@@ -1,4 +1,4 @@
-# Docker image definition for 
+# Docker image definition for running the mdbtools utility
 
 FROM alpine
 
