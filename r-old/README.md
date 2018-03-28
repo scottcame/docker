@@ -73,7 +73,9 @@ Type	"q()" to quit R.
 
 If you'd like to try out a version of R that isn't on Dockerhub, you can build the image yourself.  The Dockerfile is parameterized, so you just specify
 the version you want to build. (Major and full version params are needed due to how CRAN organizes the past source release downloads...yes, we could probably
-extract the major version from the full version, but I haven't gotten around to this yet.  Pull requests are always welcome!!)  For instance, to build a
+extract the major version from the full version, but I haven't gotten around to this yet.  Pull requests are always welcome!!)
+
+For instance, to build a
 local version of R version 1.2.2, clone the repo and run `docker build` from the directory containing the Dockerfile:
 
 ```
