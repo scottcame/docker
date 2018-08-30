@@ -1,0 +1,11 @@
+{
+	"PresidentialElectionResults2016" : {
+		"JdbcDriver" : "world.data.jdbc.Driver",
+		"Jdbc" : "jdbc:data:world:sql:data4democracy:election-transparency",
+		"JdbcUser" : "scottcame",
+		"JdbcPassword" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcm9kLXVzZXItY2xpZW50OnNjb3R0Y2FtZSIsImlzcyI6ImFnZW50OnNjb3R0Y2FtZTo6YzlmYmJjMDktMjg5Yi00YTY2LThlYTYtYTllNzk0MDFjNjIxIiwiaWF0IjoxNDg0MDk5MjQzLCJyb2xlIjpbInVzZXJfYXBpX3JlYWQiLCJ1c2VyX2FwaV93cml0ZSJdLCJnZW5lcmFsLXB1cnBvc2UiOnRydWV9.Q0Jua9GQw2P_EEjylqhRuMvzkgnC_gAYig0Mm4jQ__kTgTRSV3hDFxHo2DoBlMXRigKNWA-hoKZt26fgQuhfnw",
+		"Catalog" : "/PresidentialElectionResults2016.xml",
+		"Description" : "US Presidential Election 2016",
+		"IsDemo" : false
+	}
+}

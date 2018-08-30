@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="USElection2016" metamodelVersion="4.0">
+  <PhysicalSchema>
+    <Table name="presidentialelectionresults2016"/>
+  </PhysicalSchema>
+  <Cube name="USElection2016">
+    <Dimensions>
+      <Dimension visible="true" name="County" key="County">
+				<Attributes>
+          <Attribute name="County" keyColumn="countyname" hasHierarchy="false" table="presidentialelectionresults2016"/>
+          <Attribute name="State" keyColumn="statename" hasHierarchy="false" table="presidentialelectionresults2016"/>
+				</Attributes>
+				<Hierarchies>
+          <Hierarchy name="County"  visible="true" hasAll="true" allMemberCaption="All Counties">
+            <Level attribute="County"/>
+					</Hierarchy>
+          <Hierarchy name="State"  visible="true" hasAll="true" allMemberCaption="All States">
+            <Level attribute="State"/>
+					</Hierarchy>
+				</Hierarchies>
+			</Dimension>
+    </Dimensions>
+    <MeasureGroups>
+      <MeasureGroup table="presidentialelectionresults2016" name="Results">
+        <Measures>
+          <Measure name="Clinton Votes" aggregator="sum" column="clinton"/>
+          <Measure name="Trump Votes" aggregator="sum" column="trump"/>
+          <Measure name="Total Votes" aggregator="sum" column="totalvotes"/>
+        </Measures>
+        <DimensionLinks>
+          <FactLink dimension="County"/>
+        </DimensionLinks>
+      </MeasureGroup>
+    </MeasureGroups>
+  </Cube>
+</Schema>

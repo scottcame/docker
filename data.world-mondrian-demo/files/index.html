@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <title>data.world Mondrian Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h3 class="mb-4">Using Mondrian and Vega-Lite to Visualize Data on data.world</h3>
+
+    <div class="row">
+      <div class="col-12">
+
+        <p>The graphic below demonstrates how we can use a <a href="https://github.com/ojbc/mondrian-rest">REST API</a> to perform Relational Online Analytical Processing (ROLAP) queries via
+        <a href="https://community.hitachivantara.com/docs/DOC-1009853">Mondrian</a> of files within <a href="https://data.world/">data.world</a> datasets.</p>
+
+        <p>The data visualized below come from the <a href="http://datafordemocracy.org/">Data for Democracy</a>
+          <a href="https://data.world/data4democracy/election-transparency">Election Transparency Project Dataset</a> on data.world.  The specific file we are querying
+          contains county-level election results for the 2016 Presidential Election in the United States.</p>
+
+        <p>To create this visualization, we:
+
+          <ol>
+            <li>Define the MDX query to produce the summarized data we want to visualize</li>
+            <li>Submit the query using the mondrian-rest API, handling the response object in an asynchronous AJAX callback</li>
+            <li>In the callback, we assemble the <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> <a href="https://vega.github.io/vega-lite/docs/">specification</a>.
+              Note that this involves a little transforming of the data to get it in the shape that Vega-Lite wants it; in many scenarios, the values that come back from mondrian-rest
+              work without transformation.</li>
+            <li>We use <a href="https://github.com/vega/vega-embed">Vega Embed</a> to poulate a div in this html document with the specification to render it</li>
+          </ol>
+
+        </p>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mt-3 mb-3">
+        <div id="pending-message"><i>Query in progress...please wait...</i></div>
+        <div id="chart-div"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <p>You can further experiment with submitting <a href="https://docs.microsoft.com/en-us/sql/analysis-services/multidimensional-models/mdx/mdx-query-fundamentals-analysis-services?view=sql-server-2017">MDX</a>
+          queries to this dataset directly using the <a href="/mondrian-rest/query-ui/">mondrian-rest query UI</a>. MDX is an OLAP query syntax originally developed by Microsoft; Mondrian implements
+          MDX for arbitrary Java/JDBC data sources.  Because data.world supplies a <a href="https://github.com/datadotworld/dw-jdbc">JDBC driver</a> for data.world datasets/files, we are able to use Mondrian to query those
+          datasets/files using MDX syntax.</p>
+
+        <p>The source code for this demonstration (as a Docker image) is available <a href="https://github.com/scottcame/docker/tree/master/data.world-mondrian-demo">here</a>.</p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.2.0/build/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.6.0/build/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.18.1/build/vega-embed.js"></script>
+  <script src='demo.js'></script>
+
+</body>
+
+</html>
