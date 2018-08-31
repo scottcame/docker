@@ -4,11 +4,11 @@ This docker image demonstrates the use of [Mondrian](https://community.hitachiva
 online analytical processing (OLAP) queries of files in [data.world](https://data.world/) datasets.  It uses a [REST API wrapper](https://github.com/ojbc/mondrian-rest)
 for Mondrian and the data.world [JDBC driver](https://github.com/datadotworld/dw-jdbc) to do the heavy lifting.
 
-<kbd><img src="screenshot.png" /></kbd>
-
 One nice benefit of this approach is that the REST API returns results in a format conducive to visualization by
 [Vega-Lite](https://vega.github.io/vega-lite/).  The demo includes a static html page that presents data from the 2016 US presidential election,
-which resides in a publicly available data.world [dataset](https://data.world/data4democracy/election-transparency).
+which resides in a publicly available data.world [dataset](https://data.world/data4democracy/election-transparency):
+
+<kbd><img src="screenshot.png" /></kbd>
 
 The files involved in construction of the image are:
 
