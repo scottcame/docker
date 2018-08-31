@@ -7,8 +7,6 @@ if [ "$DW_TOKEN" == "<placeholder>" ]; then
   exit 1
 fi
 
-echo $DW_TOKEN
-
 sed -i "s/%DW_TOKEN%/$DW_TOKEN/" /usr/local/tomcat/shared/mondrian-connections.json
 
 catalina.sh run
