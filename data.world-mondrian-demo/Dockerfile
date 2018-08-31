@@ -18,8 +18,8 @@ RUN mkdir -p /usr/local/tomcat/webapps/demo
 COPY files/index.html /usr/local/tomcat/webapps/demo/
 COPY files/demo.js /usr/local/tomcat/webapps/demo/
 
-COPY files/entrypoint.sh /
-CMD ["/entrypoint.sh"]
+COPY files/launch-tomcat-with-token.sh /
+CMD ["/launch-tomcat-with-token.sh"]
 
 # Start docker with --env DW_TOKEN="<your data.world auth token from https://data.world/settings/advanced>"
 ENV DW_TOKEN="<placeholder>"
