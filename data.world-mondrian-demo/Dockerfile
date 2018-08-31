@@ -20,7 +20,6 @@ COPY files/demo.js /usr/local/tomcat/webapps/demo/
 
 COPY files/entrypoint.sh /
 CMD ["/entrypoint.sh"]
-EXPOSE 80
 
 # Start docker with --env DW_TOKEN="<your data.world auth token from https://data.world/settings/advanced>"
 ENV DW_TOKEN="<placeholder>"
