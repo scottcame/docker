@@ -19,7 +19,7 @@
 #   1. Make sure to mount the host's Docker socket into the container (see example below)
 #   2. Set the environment variable HEALTH_CHECK_INTERVAL to set the check interval (by default it's every 10 seconds)
 #   3. Set the environment variable VERBOSE as needed (default is false)
-#   4. Set a label of health-check-monitor=true on any containers you want checked
+#   4. Set a label of health-checker-monitor=true on any containers you want checked
 
 # Example
 # -------
