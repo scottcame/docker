@@ -1,0 +1,15 @@
+{
+  "name": "health-checker",
+  "version": "1.0.0",
+  "description": "Checks for unhealthy docker containers and restarts them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dockerode": "^2.5.7",
+    "args": "^5.0.0"
+  }
+}

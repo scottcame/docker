@@ -1,0 +1,5 @@
+# Silly image definition file that adds curl to stock Apache httpd so it can be health-checked
+
+FROM httpd
+
+RUN apt-get update && apt-get install -y curl
