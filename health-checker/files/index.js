@@ -61,7 +61,7 @@ var pause = false;
               }
               let status = inspectResult.State.Health.Status;
               if ('unhealthy' === status) {
-                console.log("Container " + inspectResult.Id + " (" + containerName + ") is unhealthy, restarting...")
+                console.log("Container " + inspectResult.Id + " (" + containerName + ") is unhealthy at " + new Date() + ", restarting...")
                 pause = true;
                 container.remove({ force: true }).then(function(container) {
                   docker.createContainer({
@@ -86,11 +86,14 @@ var pause = false;
                   }).then(function(container) {
                     return container.start().then(function(container) {
                       pause = false;
+                      console.log("Container " + inspectResult.Id + " (" + containerName + ") restarted at " + new Date());
                     });
                   });
                 });
               } else {
-                console.log("Container " + inspectResult.Id + " (" + containerName + ") is healthy");
+                if (verbose) {
+                  console.log("Container " + inspectResult.Id + " (" + containerName + ") is healthy");
+                }
               }
             });
           });
