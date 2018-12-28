@@ -64,13 +64,14 @@ var pause = false;
                 console.log("Container " + inspectResult.Id + " (" + containerName + ") is unhealthy at " + new Date() + ", restarting...")
                 pause = true;
                 container.remove({ force: true }).then(function(container) {
-                  docker.createContainer({
+                  let containerSpec = {
                     name: containerName,
                     Image: inspectResult.Config.Image,
                     Cmd: inspectResult.Config.Cmd,
                     Env: inspectResult.Config.Env,
                     Healthcheck: inspectResult.Config.Healthcheck,
                     Labels: inspectResult.Config.Labels,
+                    ExposedPorts: inspectResult.Config.ExposedPorts,
                     HostConfig: {
                       NetworkMode: inspectResult.HostConfig.NetworkMode,
                       PortBindings: inspectResult.HostConfig.PortBindings,
@@ -83,7 +84,8 @@ var pause = false;
                         };
                       })
                     }
-                  }).then(function(container) {
+                  };
+                  docker.createContainer(containerSpec).then(function(container) {
                     return container.start().then(function(container) {
                       pause = false;
                       console.log("Container " + inspectResult.Id + " (" + containerName + ") restarted at " + new Date());
